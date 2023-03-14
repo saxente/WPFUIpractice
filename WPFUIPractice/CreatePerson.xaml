@@ -1,0 +1,69 @@
+﻿<Window x:Class="WPFUIPractice.CreatePerson"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFUIPractice"
+        mc:Ignorable="d"
+        Title="CreatePerson" Height="450" Width="800">
+    <Grid>
+        <Grid Margin=" 20 20 10 10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Margin="0 5 10 0" HorizontalAlignment="Center">Person Details</TextBlock>
+
+            <TextBlock Grid.Column="1" Grid.Row="2" Margin="0 5 10 0">First Name</TextBlock>
+            <TextBox x:Name="firstNameText" Grid.Column="2" Grid.Row="2" Margin="5" MinWidth="200"/>
+
+            <TextBlock Grid.Column="1" Grid.Row="3" Margin="0 10 10 0">Last Name</TextBlock>
+            <TextBox x:Name="lastNameText" Grid.Column="2" Grid.Row="3" Margin="5" MinWidth="200"/>
+
+            <TextBlock Grid.Column="1" Grid.Row="4" Margin="0 10 10 0">Email Address</TextBlock>
+            <TextBox x:Name="emailAddressText" Grid.Column="2" Grid.Row="4" Margin="5" MinWidth="200"/>
+
+            <TextBlock Grid.Column="1" Grid.Row="5" Margin="0 10 10 0">Phone Number</TextBlock>
+            <TextBox x:Name="phoneNumberText" Grid.Column="2" Grid.Row="5" Margin="5" MinWidth="200"/>
+
+            <TextBlock Grid.Column="1" Grid.Row="6" Margin="0 10 10 0">Is Active</TextBlock>
+            <CheckBox x:Name="isActiveCheck" Grid.Column="2" Grid.Row="6" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+            <TextBlock Grid.Column="1" Grid.Row="7" Grid.ColumnSpan="2" Margin="0 5 10 0" HorizontalAlignment="Center">Addresses</TextBlock>
+            <ListBox x:Name="addressesListbox" Grid.Column="1" Grid.Row="8" Grid.ColumnSpan="2" Margin="0 10 0 10" />
+
+            <Button x:Name="createAddress" Grid.Column="1" Grid.Row="9" Margin="10" Width="100" Click="createAddress_Click" >Create</Button>
+            <Button x:Name="deleteAddress" Grid.Column="2" Grid.Row="9" Margin="10" Width="100">Delete</Button>
+
+
+            <Button x:Name="savePerson" Grid.Column="1" Grid.Row="10" Margin="10" Width="150" Grid.ColumnSpan="2" HorizontalAlignment="Center">Save Person</Button>
+
+
+        </Grid>
+    </Grid>
+</Window>
