@@ -136,7 +136,21 @@
                        Selected Persons Addresses
                     </TextBlock>
                     <ListBox x:Name="selectedPersonAddressListBox" Grid.Column="1" Grid.ColumnSpan="6" Grid.Row="9" Grid.RowSpan="3" Margin="20 5 20 0">
-
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Path= StreetNumber}" FontSize="16"/>
+                                    <TextBlock Text=" " FontSize="16"/>
+                                    <TextBlock Text="{Binding Path= StreetName}" FontSize="16"/>
+                                    <TextBlock Text=", " FontSize="16"/>
+                                    <TextBlock Text="{Binding Path= City}" FontSize="16"/>
+                                    <TextBlock Text=", " FontSize="16" />
+                                    <TextBlock Text="{Binding Path= Country}" FontSize="16"/>
+                                    <TextBlock Text=", " FontSize="16"/>
+                                    <TextBlock Text="{Binding Path= Postcode}" FontSize="16"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
                     </ListBox>
 
                     <Button x:Name="searchButton" Grid.Column="1" Grid.Row="13" Margin="5,10,15,10" Click="searchButton_Click">Search</Button>

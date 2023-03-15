@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DataAccessLibrary.Net.Models;
+using System.Net;
 
 namespace WPFUIPractice
 {
@@ -46,6 +47,7 @@ namespace WPFUIPractice
             {
                 BasicPersonModel person = new BasicPersonModel
                 {
+                    Id = row.Id,
                     FirstName = row.FirstName,
                     LastName = row.LastName,
                     EmailAddress = row.EmailAddress,
@@ -58,10 +60,33 @@ namespace WPFUIPractice
            return persons;
         }
 
+        private List<AddressModel> AddressesByPersonId(SqlCrud sql, int personId)
+        {
+            FullPersonModel person = new FullPersonModel();
+            
+            List<AddressModel> addresses = new List<AddressModel>();
+
+            person = sql.GetAddressesByPersonId(personId);
+
+            foreach (AddressModel address in person.Addresses)
+
+            {
+                AddressModel personAddress = new AddressModel
+                {
+                    Id = address.Id,
+                    StreetNumber = address.StreetNumber,
+                    StreetName = address.StreetName,
+                    City = address.City,
+                    Country = address.Country,
+                    Postcode = address.Postcode,
+                };
+                addresses.Add(personAddress);
+            }
+            return addresses;
+        }
 
 
-
-                private void createOrderButton_Click(object sender, RoutedEventArgs e)
+            private void createOrderButton_Click(object sender, RoutedEventArgs e)
         {
             CreateOrder order = new CreateOrder();
             order.Show();
@@ -141,7 +166,7 @@ namespace WPFUIPractice
             if ( searchResults.SelectedItems.Count == 1)
             {
                 person = searchResults.SelectedItem as BasicPersonModel;
-                MessageBox.Show("merge codul pana aici");
+                selectedPersonAddressListBox.ItemsSource = AddressesByPersonId(sql, person.Id);
             }
             else if (searchResults.SelectedItems.Count == 0)
             {
